@@ -32,25 +32,26 @@ public class MainWindow extends ViewController {
     @FXML
     private HBox body;
 
-    private HashMap<String, ViewController> pages;
+    private HashMap<String, ViewController> pages = new HashMap<>();
 
     @FXML
     public void initialize() {
+        loadNavbarOptions();
+        adjustLayoutSize();
 
-        // pages.put("Home", fxWeaver.loadController(MainWindow.class));
-        // pages.put("Ordens de Serviço",
-        // fxWeaver.loadController(ServiceOrderForm.class));
-        // pages.put("Teste", fxWeaver.loadController(TesteWindow.class));
+        getPrimaryStage().heightProperty().addListener((__, ___, ____) -> adjustLayoutSize());
+        getPrimaryStage().maximizedProperty().addListener((__, ___, ____) -> adjustLayoutSize());
+    }
+
+    private void loadNavbarOptions() {
+        pages.put("Preventivas", fxWeaver.loadController(ServiceOrderForm.class));
+        pages.put("Corretivas", fxWeaver.loadController(TesteWindow.class));
 
         navbar.getItems().addAll(pages.keySet());
         navbar.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            // if (newValue != null)
-            // pages.get(newValue).show();
+            if (newValue != null)
+                appContent.getChildren().setAll(pages.get(newValue).load());
         });
-
-        this.getPrimaryStage().heightProperty().addListener((__, ___, ____) -> adjustLayoutSize());
-        this.getPrimaryStage().maximizedProperty().addListener((__, ___, ____) -> adjustLayoutSize());
-        adjustLayoutSize();
     }
 
     private void adjustLayoutSize() {
