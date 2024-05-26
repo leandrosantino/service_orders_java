@@ -1,13 +1,13 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.2.5'
-	id 'io.spring.dependency-management' version '1.1.4'
+	id 'org.springframework.boot' version '3.3.0'
+	id 'io.spring.dependency-management' version '1.1.5'
 	id 'org.openjfx.javafxplugin' version '0.0.10'
 	id 'gg.jte.gradle' version '3.1.11'
 }
 
 group = 'com.leandrosantino'
-version = ''
+version = '1'
 
 java {
 	sourceCompatibility = '17'
@@ -27,7 +27,7 @@ configurations {
 
 jte {
     generate()
-	// binaryStaticContent = true
+	binaryStaticContent = true
 }
 
 repositories {
@@ -52,4 +52,3 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
-

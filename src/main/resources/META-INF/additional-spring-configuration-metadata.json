@@ -1,14 +1,14 @@
 {
     "properties": [
         {
-            "name": "hibernate.show_sql",
+            "name": "ui_title",
             "type": "java.lang.String",
-            "description": "A description for 'hibernate.show_sql'"
+            "description": "A description for 'ui.title'"
         },
         {
-            "name": "hibernate.hbm2ddl.auto",
+            "name": "url",
             "type": "java.lang.String",
-            "description": "A description for 'hibernate.hbm2ddl.auto'"
+            "description": "A description for 'url'"
         },
         {
             "name": "username",
@@ -18,17 +18,17 @@
         {
             "name": "password",
             "type": "java.lang.String",
-            "description": "A description for 'username'"
+            "description": "A description for 'password'"
         },
         {
-            "name": "url",
+            "name": "hibernate.hbm2ddl.auto",
             "type": "java.lang.String",
-            "description": "A description for 'url'"
+            "description": "A description for 'hibernate.hbm2ddl.auto'"
         },
         {
-            "name": "spring.application.ui.title",
+            "name": "hibernate.show_sql",
             "type": "java.lang.String",
-            "description": "A description for 'spring.application.ui.title'"
+            "description": "A description for 'hibernate.show_sql'"
         }
     ]
 }
