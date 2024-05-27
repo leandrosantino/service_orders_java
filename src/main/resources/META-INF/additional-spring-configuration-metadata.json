@@ -1,11 +1,6 @@
 {
     "properties": [
         {
-            "name": "ui_title",
-            "type": "java.lang.String",
-            "description": "A description for 'ui.title'"
-        },
-        {
             "name": "url",
             "type": "java.lang.String",
             "description": "A description for 'url'"
@@ -29,6 +24,11 @@
             "name": "hibernate.show_sql",
             "type": "java.lang.String",
             "description": "A description for 'hibernate.show_sql'"
+        },
+        {
+            "name": "ui-title",
+            "type": "java.lang.String",
+            "description": "A description for 'ui-title'"
         }
     ]
 }

@@ -8,17 +8,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.web.WebView?>
 
-<VBox alignment="CENTER" prefHeight="650.0" prefWidth="790.0" xmlns="http://javafx.com/javafx/21"
-   xmlns:fx="http://javafx.com/fxml/1"
-   fx:controller="com.leandrosantino.service_orders.view.controller.ServiceOrderForm">
+<VBox fx:id="testeC" alignment="TOP_CENTER" prefHeight="761.0" prefWidth="1094.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.leandrosantino.service_orders.view.controller.ServiceOrderForm">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="800.0" spacing="10.0">
          <children>
             <Button fx:id="btBack" mnemonicParsing="false" onAction="#back" text="voltar" />
             <Label fx:id="label" text="My Application" />
             <Button fx:id="btPrint" onAction="#teste" text="Print" />
-            <TextField fx:id="amountField" onDragExited="#loadDoc" prefHeight="25.0"
-               prefWidth="85.0" />
+            <TextField fx:id="amountField" onDragExited="#loadDoc" prefHeight="25.0" prefWidth="85.0" />
             <Button fx:id="btReload" mnemonicParsing="false" onAction="#loadDoc" text="Reload" />
          </children>
          <VBox.margin>
@@ -28,6 +25,6 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </HBox>
-      <WebView fx:id="view" minHeight="-1.0" minWidth="-1.0" prefHeight="726.0" prefWidth="1000.0" />
+      <WebView fx:id="view" minHeight="-1.0" minWidth="-1.0" prefHeight="783.0" prefWidth="1094.0" />
    </children>
 </VBox>

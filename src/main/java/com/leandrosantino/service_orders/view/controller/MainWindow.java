@@ -11,7 +11,6 @@ import com.leandrosantino.service_orders.view.ViewController;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import net.rgielen.fxweaver.core.FxmlView;
@@ -24,7 +23,7 @@ public class MainWindow extends ViewController {
     private ListView<String> navbar;
 
     @FXML
-    private AnchorPane appContent;
+    private VBox appContent;
 
     @FXML
     private VBox container;
@@ -40,6 +39,7 @@ public class MainWindow extends ViewController {
         adjustLayoutSize();
 
         getPrimaryStage().heightProperty().addListener((__, ___, ____) -> adjustLayoutSize());
+        getPrimaryStage().widthProperty().addListener((__, ___, ____) -> adjustLayoutSize());
         getPrimaryStage().maximizedProperty().addListener((__, ___, ____) -> adjustLayoutSize());
     }
 
@@ -58,9 +58,9 @@ public class MainWindow extends ViewController {
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         Runnable task = () -> {
             if (getScene() != null) {
-                System.out.println("scene: " + getScene().getWidth() + " x " + getScene().getHeight());
                 container.setPrefHeight(getScene().getHeight());
                 body.setPrefHeight(getScene().getHeight() - 10);
+                appContent.setPrefWidth(getScene().getWidth() - 200);
             }
         };
         scheduler.schedule(task, 50, TimeUnit.MILLISECONDS);

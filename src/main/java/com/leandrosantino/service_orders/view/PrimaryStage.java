@@ -18,7 +18,7 @@ import net.rgielen.fxweaver.core.FxWeaver;
 @RequiredArgsConstructor
 public class PrimaryStage implements ApplicationListener<StageReadyEvent> {
 
-    @Value("${ui.title}")
+    @Value("${ui-title}")
     private final String applicationTitle;
 
     private final FxWeaver fxWeaver;
