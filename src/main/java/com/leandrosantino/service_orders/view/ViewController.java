@@ -1,8 +1,6 @@
-package com.leandrosantino.service_orders.utils;
+package com.leandrosantino.service_orders.view;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-import com.leandrosantino.service_orders.view.PrimaryStage;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;

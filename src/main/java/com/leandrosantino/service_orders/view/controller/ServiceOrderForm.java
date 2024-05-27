@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.leandrosantino.service_orders.entity.DataPage;
-import com.leandrosantino.service_orders.utils.ViewController;
+import com.leandrosantino.service_orders.view.ViewController;
 
 import gg.jte.ContentType;
 import gg.jte.TemplateEngine;
