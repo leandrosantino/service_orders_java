@@ -48,6 +48,7 @@ public class MainWindow extends ViewController {
         pages.put("Corretivas", fxWeaver.loadController(TesteWindow.class));
 
         navbar.getItems().addAll(pages.keySet());
+        appContent.getChildren().setAll(pages.get("Preventivas").load());
         navbar.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null)
                 appContent.getChildren().setAll(pages.get(newValue).load());

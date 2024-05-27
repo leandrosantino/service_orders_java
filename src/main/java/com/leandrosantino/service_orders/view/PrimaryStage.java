@@ -34,7 +34,10 @@ public class PrimaryStage implements ApplicationListener<StageReadyEvent> {
     public void onApplicationEvent(@SuppressWarnings("null") StageReadyEvent event) {
         this.stage = event.getStage();
         Parent parent = fxWeaver.loadView(MainWindow.class);
-        this.scene = new Scene(parent, 1000, 650);
+        this.scene = new Scene(parent, 1100, 700);
+        stage.setMinWidth(scene.getWidth());
+        stage.setMinHeight(scene.getHeight());
+
         CSSFX.start();
         stage.setScene(scene);
         stage.setTitle(applicationTitle);
