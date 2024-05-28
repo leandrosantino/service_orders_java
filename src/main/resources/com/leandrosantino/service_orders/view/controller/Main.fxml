@@ -8,7 +8,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="container" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" stylesheets="@../styles/index.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.leandrosantino.service_orders.view.controller.MainWindow">
+<VBox fx:id="container" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+   minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1150.0"
+   style="-fx-background-color: white;" stylesheets="@../styles/index.css"
+   xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="com.leandrosantino.service_orders.view.controller.Main">
    <children>
       <MenuBar prefHeight="10.0">
          <menus>
@@ -31,14 +35,14 @@
             </Menu>
          </menus>
       </MenuBar>
-      <HBox fx:id="body" prefHeight="575.0" prefWidth="787.0">
+      <HBox fx:id="body" prefHeight="709.0" prefWidth="1150.0">
          <children>
             <ListView fx:id="navbar" minWidth="-Infinity" prefWidth="209.0">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </ListView>
-            <VBox fx:id="appContent" alignment="TOP_CENTER" prefHeight="575.0" prefWidth="729.0" />
+            <VBox fx:id="appContent" alignment="TOP_CENTER" prefHeight="675.0" prefWidth="1001.0" />
          </children>
       </HBox>
    </children>

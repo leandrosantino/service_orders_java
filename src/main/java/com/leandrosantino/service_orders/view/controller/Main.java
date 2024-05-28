@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import com.leandrosantino.service_orders.view.ViewController;
 
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -17,7 +18,7 @@ import net.rgielen.fxweaver.core.FxmlView;
 
 @FxmlView
 @Component
-public class MainWindow extends ViewController {
+public class Main extends ViewController {
 
     @FXML
     private ListView<String> navbar;
@@ -31,7 +32,11 @@ public class MainWindow extends ViewController {
     @FXML
     private HBox body;
 
-    private HashMap<String, ViewController> pages = new HashMap<>();
+    private HashMap<String, OpenPage> pages = new HashMap<>();
+
+    private interface OpenPage {
+        public Node call();
+    }
 
     @FXML
     public void initialize() {
@@ -44,21 +49,21 @@ public class MainWindow extends ViewController {
     }
 
     private void loadNavbarOptions() {
-        pages.put("Preventivas", fxWeaver.loadController(ServiceOrderForm.class));
-        pages.put("Corretivas", fxWeaver.loadController(TesteWindow.class));
+        pages.put("Dashboard", () -> fxWeaver.loadView(Dashboard.class));
 
         navbar.getItems().addAll(pages.keySet());
-        appContent.getChildren().setAll(pages.get("Preventivas").load());
+        appContent.getChildren().setAll(pages.get("Dashboard").call());
         navbar.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null)
-                appContent.getChildren().setAll(pages.get(newValue).load());
+                appContent.getChildren().setAll(pages.get(newValue).call());
         });
     }
 
-    private void adjustLayoutSize() {
+    public void adjustLayoutSize() {
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         Runnable task = () -> {
             if (getScene() != null) {
+                System.out.println(getScene().getWidth());
                 container.setPrefHeight(getScene().getHeight());
                 body.setPrefHeight(getScene().getHeight() - 10);
                 appContent.setPrefWidth(getScene().getWidth() - 200);

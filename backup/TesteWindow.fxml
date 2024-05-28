@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="940.0" stylesheets="@../styles/index.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.leandrosantino.service_orders.view.controller.TesteWindow">
+   <children>
+      <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="940.0">
+         <children>
+            <Label prefWidth="919.0" styleClass="header" text="Ordens de Serviço Preventivas - Semana 12, 2023">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets left="5.0" right="5.0" />
+         </VBox.margin>
+      </VBox>
+      <ScrollPane fx:id="scrollPaneContainer" fitToHeight="true" fitToWidth="true" prefWidth="930.0">
+         <content>
+            <FlowPane fx:id="container" columnHalignment="CENTER" hgap="10.0" prefHeight="630.0" prefWidth="920.0" style="-fx-background-color: #fff;" vgap="10.0">
+               <padding>
+                  <Insets bottom="20.0" left="12.0" right="10.0" top="10.0" />
+               </padding>
+            </FlowPane>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

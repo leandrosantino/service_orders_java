@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
-import com.leandrosantino.service_orders.view.controller.MainWindow;
+import com.leandrosantino.service_orders.view.controller.Main;
 import com.leandrosantino.service_orders.view.event.StageReadyEvent;
 
 import fr.brouillard.oss.cssfx.CSSFX;
@@ -33,10 +33,11 @@ public class PrimaryStage implements ApplicationListener<StageReadyEvent> {
     @Override
     public void onApplicationEvent(@SuppressWarnings("null") StageReadyEvent event) {
         this.stage = event.getStage();
-        Parent parent = fxWeaver.loadView(MainWindow.class);
-        this.scene = new Scene(parent, 1100, 700);
-        stage.setMinWidth(scene.getWidth());
-        stage.setMinHeight(scene.getHeight());
+        Parent parent = fxWeaver.loadView(Main.class);
+        this.scene = new Scene(parent, 1150, 700);
+        System.out.println(scene.getHeight());
+        stage.setMinWidth(scene.getWidth() + 16);
+        stage.setMinHeight(scene.getHeight() + 39);
 
         CSSFX.start();
         stage.setScene(scene);

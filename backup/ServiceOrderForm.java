@@ -2,9 +2,6 @@ package com.leandrosantino.service_orders.view.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import org.springframework.stereotype.Component;
 
@@ -45,22 +42,7 @@ public class ServiceOrderForm extends ViewController {
 
     @FXML
     public void initialize() {
-        adjustLayoutSize();
-        getPrimaryStage().heightProperty().addListener((__, ___, ____) -> adjustLayoutSize());
-        getPrimaryStage().widthProperty().addListener((__, ___, ____) -> adjustLayoutSize());
-        getPrimaryStage().maximizedProperty().addListener((__, ___, ____) -> adjustLayoutSize());
-    }
 
-    private void adjustLayoutSize() {
-        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-        Runnable task = () -> {
-            if (getScene() != null) {
-                testeC.setPrefWidth(getScene().getWidth() - 200);
-                testeC.setPrefHeight(getScene().getHeight() - 10);
-            }
-        };
-        scheduler.schedule(task, 50, TimeUnit.MILLISECONDS);
-        scheduler.shutdown();
     }
 
     @FXML
@@ -115,5 +97,4 @@ public class ServiceOrderForm extends ViewController {
     public void back() {
         fxWeaver.loadController(MainWindow.class).show();
     }
-
 }
