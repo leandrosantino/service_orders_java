@@ -10,7 +10,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="940.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.leandrosantino.service_orders.view.controller.Dashboard">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+   prefHeight="680.0" prefWidth="940.0" spacing="20.0" xmlns="http://javafx.com/javafx/21"
+   xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="com.leandrosantino.service_orders.view.controller.Dashboard">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="940.0" spacing="20.0">
          <padding>
@@ -26,7 +29,8 @@
       </HBox>
       <HBox prefHeight="85.0" prefWidth="940.0" spacing="20.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="210.0" spacing="5.0" style="-fx-border-color: black; -fx-border-radius: 5px;">
+            <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="210.0" spacing="5.0"
+               style="-fx-border-color: black; -fx-border-radius: 5px;">
                <children>
                   <Label prefHeight="25.0" prefWidth="50.0" text="MTBF">
                      <font>
@@ -43,7 +47,8 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="210.0" spacing="5.0" style="-fx-border-color: black; -fx-border-radius: 5px;">
+            <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="210.0" spacing="5.0"
+               style="-fx-border-color: black; -fx-border-radius: 5px;">
                <children>
                   <Label prefHeight="25.0" prefWidth="50.0" text="MTTR">
                      <font>
@@ -60,7 +65,8 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="210.0" spacing="5.0" style="-fx-border-color: black; -fx-border-radius: 5px;">
+            <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="210.0" spacing="5.0"
+               style="-fx-border-color: black; -fx-border-radius: 5px;">
                <children>
                   <Label prefHeight="25.0" prefWidth="118.0" text="BREAKDOWNS">
                      <font>
@@ -77,7 +83,8 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="210.0" spacing="5.0" style="-fx-border-color: black; -fx-border-radius: 5px;">
+            <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="210.0" spacing="5.0"
+               style="-fx-border-color: black; -fx-border-radius: 5px;">
                <children>
                   <Label prefHeight="25.0" prefWidth="141.0" text="DISPONIBILIDADE">
                      <font>
@@ -108,13 +115,13 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <BarChart>
-                    <xAxis>
-                      <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                      <NumberAxis side="LEFT" />
-                    </yAxis>
+                  <BarChart fx:id="mtbfChart">
+                     <xAxis>
+                        <NumberAxis side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <CategoryAxis side="LEFT" />
+                     </yAxis>
                   </BarChart>
                </children>
                <padding>
@@ -128,7 +135,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <BarChart>
+                  <BarChart fx:id="mttrChart">
                      <xAxis>
                         <CategoryAxis side="BOTTOM" />
                      </xAxis>
@@ -148,13 +155,13 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <StackedBarChart prefHeight="355.0" prefWidth="467.0">
-                    <xAxis>
-                      <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                      <NumberAxis side="LEFT" />
-                    </yAxis>
+                  <StackedBarChart fx:id="topTenMachineChart" prefHeight="355.0" prefWidth="467.0">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis side="LEFT" />
+                     </yAxis>
                   </StackedBarChart>
                </children>
                <padding>
