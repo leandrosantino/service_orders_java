@@ -5,12 +5,11 @@ import org.springframework.stereotype.Component;
 import com.leandrosantino.service_orders.view.ViewController;
 
 import javafx.fxml.FXML;
-import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Data;
 import javafx.scene.chart.XYChart.Series;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import net.rgielen.fxweaver.core.FxmlView;
@@ -35,7 +34,6 @@ public class Dashboard extends ViewController {
 
         mtbfChart.getData().add(series);
 
-        addDataLabels(series);
         mtbfChart.setLegendVisible(false);
         mtbfChart.getXAxis().setTickLabelsVisible(false);
         mtbfChart.getXAxis().setTickMarkVisible(false);
@@ -43,24 +41,29 @@ public class Dashboard extends ViewController {
         mtbfChart.setHorizontalGridLinesVisible(false);
         mtbfChart.setVerticalGridLinesVisible(false);
 
+        addDataLabels(mtbfChart);
+
         for (Data<Number, String> data : series.getData()) {
             data.getNode().setStyle("-fx-bar-fill: " + toRgbString(Color.BLUE) + ";");
         }
     }
 
-    private void addDataLabels(XYChart.Series<Number, String> series) {
-        for (XYChart.Data<Number, String> data : series.getData()) {
-            Node node = data.getNode();
-            Text dataLabel = new Text(data.getXValue().toString());
-            node.parentProperty().addListener((ov, oldParent, parent) -> {
-                if (parent != null) {
-                    ((Group) parent).getChildren().add(dataLabel);
-                }
-            });
-            node.boundsInParentProperty().addListener((ov, oldBounds, bounds) -> {
-                dataLabel.setLayoutX(bounds.getMaxX() + 5);
-                dataLabel.setLayoutY(bounds.getMinY() + bounds.getHeight() / 2);
-            });
+    private void addDataLabels(BarChart<Number, String> barChart) {
+        for (XYChart.Series<Number, String> series : barChart.getData()) {
+            for (XYChart.Data<Number, String> data : series.getData()) {
+                StackPane bar = (StackPane) data.getNode();
+                Text dataLabel = new Text(data.getXValue().toString());
+                dataLabel.setFill(Color.BLACK); // Defina a cor do texto aqui
+                dataLabel.setStyle("-fx-font-size: 14; -fx-font-weight: bold;");
+
+                bar.getChildren().add(dataLabel);
+                bar.widthProperty().addListener((obs, oldWidth, newWidth) -> {
+                    dataLabel.setTranslateX(0); // Ajuste a posição do rótulo
+                });
+                bar.heightProperty().addListener((obs, oldHeight, newHeight) -> {
+                    dataLabel.setTranslateY(0);
+                });
+            }
         }
     }
 

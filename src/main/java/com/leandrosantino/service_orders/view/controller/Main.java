@@ -52,6 +52,7 @@ public class Main extends ViewController {
         pages.put("Dashboard", () -> fxWeaver.loadView(Dashboard.class));
 
         navbar.getItems().addAll(pages.keySet());
+        navbar.getSelectionModel().select(0);
         appContent.getChildren().setAll(pages.get("Dashboard").call());
         navbar.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null)
