@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
 
+import com.leandrosantino.service_orders.entity.machine.Machine;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -44,7 +46,9 @@ public class ServiceOrder {
     private String type;
 
     private String specialty;
-    // private Machine machine;
+
+    private Machine machine;
+
     // private Cause cause;
     // private List<Worker> responsibles;
     // private List<PreventiveAction> preventiveActions;

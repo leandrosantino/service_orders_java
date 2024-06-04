@@ -50,6 +50,7 @@ public class Main extends ViewController {
 
     private void loadNavbarOptions() {
         pages.put("Dashboard", () -> fxWeaver.loadView(Dashboard.class));
+        pages.put("Formulário", () -> fxWeaver.loadView(Dashboard.class));
 
         navbar.getItems().addAll(pages.keySet());
         navbar.getSelectionModel().select(0);

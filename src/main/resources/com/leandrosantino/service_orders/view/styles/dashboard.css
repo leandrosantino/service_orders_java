@@ -1,0 +1,39 @@
+/* styles.css */
+.axis-label {
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+
+}
+
+.teste {
+    -fx-font-size: 14px;
+
+}
+
+.chart-bar {
+    -fx-bar-fill: blue;
+}
+
+.chart-title {
+    -fx-text-fill: black;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.chart-legend {
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.chart-horizontal-grid-lines,
+.chart-vertical-grid-lines {
+    -fx-stroke: transparent;
+}
+
+.chart-data-label {
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}

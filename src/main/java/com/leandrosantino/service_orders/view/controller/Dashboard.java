@@ -11,6 +11,7 @@ import javafx.scene.chart.XYChart.Data;
 import javafx.scene.chart.XYChart.Series;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import net.rgielen.fxweaver.core.FxmlView;
 
@@ -30,22 +31,22 @@ public class Dashboard extends ViewController {
         series.getData().add(new Data<>(50, "Whater jet"));
         series.getData().add(new Data<>(30, "Injeção de pe"));
         series.getData().add(new Data<>(20, "Corte a layser"));
-        series.getData().add(new Data<>(10, "glausutec"));
+        series.getData().add(new Data<>(10, "Glausutec"));
 
         mtbfChart.getData().add(series);
 
+        addDataLabels(mtbfChart);
         mtbfChart.setLegendVisible(false);
+        mtbfChart.getXAxis().visibleProperty().set(false);
         mtbfChart.getXAxis().setTickLabelsVisible(false);
         mtbfChart.getXAxis().setTickMarkVisible(false);
         mtbfChart.getYAxis().setTickMarkVisible(false);
         mtbfChart.setHorizontalGridLinesVisible(false);
         mtbfChart.setVerticalGridLinesVisible(false);
 
-        addDataLabels(mtbfChart);
+        mtbfChart.getYAxis().setTickLabelFill(Color.BLACK);
+        mtbfChart.getYAxis().setTickLabelFont(Font.font("Arial", 14));
 
-        for (Data<Number, String> data : series.getData()) {
-            data.getNode().setStyle("-fx-bar-fill: " + toRgbString(Color.BLUE) + ";");
-        }
     }
 
     private void addDataLabels(BarChart<Number, String> barChart) {
@@ -53,25 +54,11 @@ public class Dashboard extends ViewController {
             for (XYChart.Data<Number, String> data : series.getData()) {
                 StackPane bar = (StackPane) data.getNode();
                 Text dataLabel = new Text(data.getXValue().toString());
-                dataLabel.setFill(Color.BLACK); // Defina a cor do texto aqui
-                dataLabel.setStyle("-fx-font-size: 14; -fx-font-weight: bold;");
-
+                dataLabel.setFill(Color.WHITE);
+                dataLabel.getStyleClass().add("chart-data-label");
                 bar.getChildren().add(dataLabel);
-                bar.widthProperty().addListener((obs, oldWidth, newWidth) -> {
-                    dataLabel.setTranslateX(0); // Ajuste a posição do rótulo
-                });
-                bar.heightProperty().addListener((obs, oldHeight, newHeight) -> {
-                    dataLabel.setTranslateY(0);
-                });
             }
         }
-    }
-
-    private String toRgbString(Color color) {
-        return String.format("rgb(%d,%d,%d)",
-                (int) (color.getRed() * 255),
-                (int) (color.getGreen() * 255),
-                (int) (color.getBlue() * 255));
     }
 
 }

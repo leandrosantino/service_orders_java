@@ -15,23 +15,28 @@
 
 .list-cell {
     -fx-background-color: #d0d0d0;
-    -fx-text-fill: black;
+    -fx-text-fill: #1f1f1f;
     -fx-min-height: 30px;
-    -fx-font-weight: 600;
+    -fx-font-weight: 900;
     -fx-font-size: 14px;
     -fx-cursor: hand;
+    -fx-border-radius: 5px;
 }
 
 .list-cell:filled:selected {
     -fx-background-color: #979797;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #1f1f1f;
 }
 
 .list-cell:filled:selected:hover {
     -fx-background-color: #979797;
+    -fx-border-radius: 5px;
 }
 
 .list-cell:filled:hover {
     -fx-background-color: #bababa;
+    -fx-border-radius: 5px;
 }
 
 .scroll-pane:focused {
