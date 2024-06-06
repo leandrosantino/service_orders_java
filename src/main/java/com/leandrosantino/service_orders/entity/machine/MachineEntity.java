@@ -2,8 +2,6 @@ package com.leandrosantino.service_orders.entity.machine;
 
 import java.util.UUID;
 
-import com.leandrosantino.service_orders.entity.ute.Ute;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,7 +12,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "machines")
-public class Machine {
+public class MachineEntity {
 
     @Id
     @GeneratedValue(generator = "UUID")
@@ -26,7 +24,7 @@ public class Machine {
     @Column(nullable = false)
     private Ute ute;
 
-    // private Technology technology;
-    // private List<ServiceOrder> serviceOrders;
+    @Column(nullable = false)
+    private String technology;
 
 }

@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.leandrosantino.service_orders.entity.machine.IMachineRepository;
-import com.leandrosantino.service_orders.entity.machine.Machine;
 import com.leandrosantino.service_orders.entity.service_order.IServiceOrderRepository;
-import com.leandrosantino.service_orders.entity.ute.Ute;
 import com.leandrosantino.service_orders.view.ViewController;
 
 import javafx.fxml.FXML;
@@ -35,12 +33,13 @@ public class Dashboard extends ViewController {
 
     public void initialize() {
 
-        var machine = new Machine();
-        machine.setTag("M15");
-        machine.setUte(Ute.UTE_1);
-        machineRepository.save(machine);
+        // var machine = new MachineEntity();
+        // machine.setTag("M15");
+        // machine.setUte(Ute.UTE_1);
+        // machine.setTechnology("Teste");
+        // machineRepository.save(machine);
 
-        System.out.println(machineRepository.findAll());
+        // System.out.println(machineRepository.findAll());
 
         Series<Number, String> series = new Series<>();
         series.setName("MTBF");
